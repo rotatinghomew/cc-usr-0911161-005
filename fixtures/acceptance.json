@@ -1,0 +1,158 @@
+{
+  "scenario": "全球南方公共算力援助分配治理台",
+  "synthetic": true,
+  "records": [
+    {
+      "record_id": "compute_request-001",
+      "payload": {
+        "requestor_country": "requestor_country-0",
+        "use_case": "use_case-1",
+        "public_value_proof": 0.47,
+        "resource_gap": 0.58,
+        "partner_assurance": 0.69,
+        "localization_effort": 21.5,
+        "delivery_capacity": 23.4,
+        "requested_units": 25.3,
+        "continuity_risk": 0.36,
+        "policy_risk": 0.47,
+        "operations_cost": 31.0,
+        "dependency_count": 32.9
+      },
+      "state": "screening",
+      "source": "synthetic-local-acceptance"
+    },
+    {
+      "record_id": "compute_request-002",
+      "payload": {
+        "requestor_country": "requestor_country-1",
+        "use_case": "use_case-2",
+        "public_value_proof": 0.58,
+        "resource_gap": 0.69,
+        "partner_assurance": 0.8,
+        "localization_effort": 25.2,
+        "delivery_capacity": 27.1,
+        "requested_units": 29.0,
+        "continuity_risk": 0.47,
+        "policy_risk": 0.58,
+        "operations_cost": 34.7,
+        "dependency_count": 36.6
+      },
+      "state": "screening",
+      "source": "synthetic-local-acceptance"
+    },
+    {
+      "record_id": "compute_request-003",
+      "payload": {
+        "requestor_country": "requestor_country-2",
+        "use_case": "use_case-3",
+        "public_value_proof": 0.69,
+        "resource_gap": 0.8,
+        "partner_assurance": 0.91,
+        "localization_effort": 28.9,
+        "delivery_capacity": 30.8,
+        "requested_units": 32.7,
+        "continuity_risk": 0.58,
+        "policy_risk": 0.69,
+        "operations_cost": 38.4,
+        "dependency_count": 40.3
+      },
+      "state": "screening",
+      "source": "synthetic-local-acceptance"
+    },
+    {
+      "record_id": "compute_request-004",
+      "payload": {
+        "requestor_country": "requestor_country-3",
+        "use_case": "use_case-4",
+        "public_value_proof": 0.8,
+        "resource_gap": 0.91,
+        "partner_assurance": 0.25,
+        "localization_effort": 32.6,
+        "delivery_capacity": 34.5,
+        "requested_units": 36.4,
+        "continuity_risk": 0.69,
+        "policy_risk": 0.8,
+        "operations_cost": 42.1,
+        "dependency_count": 44.0
+      },
+      "state": "screening",
+      "source": "synthetic-local-acceptance"
+    },
+    {
+      "record_id": "compute_request-005",
+      "payload": {
+        "requestor_country": "requestor_country-4",
+        "use_case": "use_case-0",
+        "public_value_proof": 0.91,
+        "resource_gap": 0.25,
+        "partner_assurance": 0.36,
+        "localization_effort": 36.3,
+        "delivery_capacity": 38.2,
+        "requested_units": 40.1,
+        "continuity_risk": 0.8,
+        "policy_risk": 0.91,
+        "operations_cost": 45.8,
+        "dependency_count": 47.7
+      },
+      "state": "screening",
+      "source": "synthetic-local-acceptance"
+    },
+    {
+      "record_id": "compute_request-006",
+      "payload": {
+        "requestor_country": "requestor_country-0",
+        "use_case": "use_case-1",
+        "public_value_proof": 0.25,
+        "resource_gap": 0.36,
+        "partner_assurance": 0.47,
+        "localization_effort": 40.0,
+        "delivery_capacity": 41.9,
+        "requested_units": 43.8,
+        "continuity_risk": 0.91,
+        "policy_risk": 0.25,
+        "operations_cost": 49.5,
+        "dependency_count": 51.4
+      },
+      "state": "screening",
+      "source": "synthetic-local-acceptance"
+    },
+    {
+      "record_id": "compute_request-007",
+      "payload": {
+        "requestor_country": "requestor_country-1",
+        "use_case": "use_case-2",
+        "public_value_proof": 0.36,
+        "resource_gap": 0.47,
+        "partner_assurance": 0.58,
+        "localization_effort": 43.7,
+        "delivery_capacity": 45.6,
+        "requested_units": 47.5,
+        "continuity_risk": 0.25,
+        "policy_risk": 0.36,
+        "operations_cost": 53.2,
+        "dependency_count": 55.1
+      },
+      "state": "screening",
+      "source": "synthetic-local-acceptance"
+    },
+    {
+      "record_id": "compute_request-008",
+      "payload": {
+        "requestor_country": "requestor_country-2",
+        "use_case": "use_case-3",
+        "public_value_proof": 0.47,
+        "resource_gap": 0.58,
+        "partner_assurance": 0.69,
+        "localization_effort": 47.4,
+        "delivery_capacity": 49.3,
+        "requested_units": 51.2,
+        "continuity_risk": 0.36,
+        "policy_risk": 0.47,
+        "operations_cost": 56.9,
+        "dependency_count": 58.8
+      },
+      "state": "screening",
+      "source": "synthetic-local-acceptance"
+    }
+  ]
+}
