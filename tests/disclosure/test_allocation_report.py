@@ -4,6 +4,7 @@ import csv
 import json
 import sqlite3
 import tempfile
+import time
 import unittest
 from pathlib import Path
 
@@ -199,6 +200,41 @@ class EndToEndTests(unittest.TestCase):
         result = application.inspect()
         self.assertEqual(len(result["records"]), len(load_records()))
         self.assertEqual(len(result["decisions"]), len(load_records()))
+
+    def test_larger_batch_run_is_timely_and_verifiable(self):
+        records = []
+        for index in range(18):
+            records.append({"record_id": f"compute_request-{index + 1:03d}",
+                            "payload": {"requestor_country": f"requestor_country-{index % 5}",
+                                        "use_case": f"use_case-{index % 7}",
+                                        "public_value_proof": 0.25 + (index % 8) * 0.11,
+                                        "resource_gap": 0.25 + ((index + 1) % 8) * 0.11,
+                                        "partner_assurance": 0.25 + ((index + 2) % 8) * 0.11,
+                                        "localization_effort": 21.5 + index * 3.7,
+                                        "delivery_capacity": 23.4 + index * 3.7,
+                                        "requested_units": 25.3 + index * 3.7,
+                                        "continuity_risk": 0.25 + ((index + 3) % 8) * 0.11,
+                                        "policy_risk": 0.25 + ((index + 4) % 8) * 0.11,
+                                        "operations_cost": 31.0 + index * 3.7,
+                                        "dependency_count": 32.9 + index * 3.7},
+                            "state": "screening", "source": "synthetic-scale-regression"})
+        application = Application(self.database)
+        started = time.monotonic()
+        result = application.run_fixture({"scenario": "scale", "records": records}, self.output)
+        elapsed = time.monotonic() - started
+        self.assertEqual(result["records"], 18)
+        self.assertEqual(result["decisions"], 18)
+        self.assertLess(elapsed, 20.0)  # 穷举实现同规模需约一分钟，会议窗口内不可用
+        self.assertEqual(verify_bundle(self.output), [])
+        self.assertTrue(verify(self.database, self.output)["ok"])
+        # 分配结论与审计报告必须对应同一批输入：每条申请都有一条决策和完整规则证据
+        decisions = json.loads((self.output / "decisions.json").read_text(encoding="utf-8"))
+        self.assertEqual({item["record_id"] for item in decisions},
+                         {record["record_id"] for record in records})
+        with (self.output / "rules.csv").open(encoding="utf-8") as handle:
+            rule_rows = list(csv.DictReader(handle))
+        self.assertEqual({row["record_id"] for row in rule_rows},
+                         {record["record_id"] for record in records})
 
 
 class ScenarioVariationTests(unittest.TestCase):
